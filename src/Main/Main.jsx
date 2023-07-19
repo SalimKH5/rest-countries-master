@@ -9,7 +9,7 @@ function Main() {
         // Function to fetch the JSON data
         const fetchJsonData = async () => {
           try {
-            const response = await fetch('./data.json'); // Replace with the actual path to your JSON file
+            const response = await fetch(`${process.env.PUBLIC_URL}/data.json`); // Replace with the actual path to your JSON file
             if (!response.ok) {
               throw new Error('Failed to fetch data');
             }
