@@ -8,12 +8,12 @@ import CountryD from './CountryD/CountryD';
 const router = (
   <Routes>
     <Route path="/" element={<App />} />
-    <Route path="country/:countryname" element={<CountryD />} />
+    <Route path="/country/:countryname" element={<CountryD />} />
   </Routes>
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>{router}</BrowserRouter>
+    <BrowserRouter  basename={process.env.PUBLIC_URL}>{router}</BrowserRouter>
   </React.StrictMode>
 );
