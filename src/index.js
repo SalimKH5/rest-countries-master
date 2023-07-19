@@ -1,27 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'; // Import from 'react-router-dom' for version 6
+
 import App from './App';
 import CountryD from './CountryD/CountryD';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>,
-  },
-  {
-    path:"country/:countryname",
-    element:<CountryD/>
-  }
-]);
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+const router = (
+  <Routes>
+    <Route path="/" element={<App />} />
+    <Route path="country/:countryname" element={<CountryD />} />
+  </Routes>
 );
 
-
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>{router}</BrowserRouter>
+  </React.StrictMode>
+);
