@@ -17,9 +17,7 @@ const router = createBrowserRouter([
     element: <Detail/>,
   },
 ],
-{
-  basename:'/rest-countries-master'
-}
+
 );
 
 
