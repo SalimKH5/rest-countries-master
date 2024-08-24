@@ -13,14 +13,13 @@ const router = createBrowserRouter([
     element: <App/>,
   },
   {
-    path: "details/:name",
+    path: "/details/:name",
     element: <Detail/>,
   },
 ],
 {
-  basename:'/rest-countries-master/'
+  basename:'/rest-countries-master'
 }
-
 );
 
 
