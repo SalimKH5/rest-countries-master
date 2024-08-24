@@ -8,7 +8,7 @@ function App() {
 
 
   const Countries: ICountry[] | undefined = data;
-
+  
   const [region, setRegion] = useState<string | number | readonly string[]>("");
   const [filter, setFilter] = useState<ICountry[] | undefined>(data);
   const [searchCountry, setSearchCountry] = useState<string>("");
