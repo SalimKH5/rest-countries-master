@@ -1,22 +1,30 @@
 
 import data from "../assets/data.json"
 import { useParams } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa"
+import { useNavigate } from "react-router-dom";
 
 const Detail = () => {
 
   const path = useParams();
-
+  console.log({path});
   const Countries: ICountry[] | undefined = data;
 
   const country = Countries.find((country: ICountry) => path.name === country.name)
-
+  const navigate = useNavigate();
 
 
 
 
   return (
-    <div className="w-full  h-full min-h-screen flex items-center dark:text-white  justify-center py-16">
-      <div className="w-full h-full flex flex-col lg:flex-row gap-10 justify-between   max-w-xs sm:max-w-xl lg:max-w-5xl xl:max-w-6xl ">
+    <div className="w-full h-full min-h-[100vh] flex items-center flex-col dark:text-white   ">
+      <div className=" w-full h-full flex items-center flex-col max-w-xs sm:max-w-xl lg:max-w-5xl xl:max-w-6xl">
+      <div className="w-full py-6">
+              <button onClick={()=>{
+                 navigate("/");
+              }} className="px-4 py-2 flex items-center gap-3 border rounded-lg  hover:text-[#f3f3f3e4] hover:bg-[#202c37]  hover:dark:text-[#202c37] hover:dark:bg-white"><FaArrowLeft/> <span className="font-bold">Back</span></button>
+      </div>
+      <div className="w-full h-full flex flex-col lg:flex-row gap-10 justify-between  ">
         <div className="flex-[0.5] flex items-center">
           <img src={country?.flag} alt="" className="w-full h-full object-cover rounded-2xl" />
         </div>
@@ -55,6 +63,8 @@ const Detail = () => {
           </div>
         </div>
       </div>
+      </div>
+     
     </div>
   )
 }
